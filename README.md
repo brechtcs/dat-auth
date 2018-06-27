@@ -12,7 +12,7 @@ Authentication using `dat-auth` follows these steps:
 4. Server stores token on session
 5. Client writes a file with filename $TOKEN to the profile `dat`. This proves the profile is indeed owned by the user.
 6. Client POSTs the `dat` public key to `http://service/auth/dat`
-7. Server uses the public key to check if the received `dat` has a file with filename $TOKEN
+7. Server uses the public key to check if the chosen profile `dat` has a file with filename $TOKEN
 - If the profile has got the token: `200: Authenticated`
 - If the profile does not have the token: `401: Unauthenticated`
 8. Client deletes the token file from the profile `dat`
