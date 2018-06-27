@@ -2,7 +2,7 @@ var Dat = require('dat-node')
 var express = require('express')
 var parser = require('body-parser')
 var session = require('express-session')
-var static = require('serve-static')
+var serve = require('serve-static')
 var uuid = require('uuid/v4')
 
 var sessionOpts = {
@@ -17,7 +17,7 @@ var sessionOpts = {
 var app = express()
 app.use(session(sessionOpts))
 app.use(parser.json())
-app.use(static('public'))
+app.use(serve('public'))
 
 app.get('/auth/dat', function (req, res) {
   req.session.token = uuid()
